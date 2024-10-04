@@ -1,0 +1,60 @@
+/* Container styling for the widget */
+.widget {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto;
+    width: 100%;
+}
+
+/* Heading title styling */
+.widget-title {
+    font-size: 1.6rem;
+    color: #ffab40;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Styling for the loading text */
+.loading-text {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    margin-top: 10px;
+}
+
+/* Race count display styling */
+.count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: inherit;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect */
+.widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .race-count-widget {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .widget-title {
+        font-size: 1.4rem;
+    }
+
+    .race-count {
+        font-size: 1.8rem;
+    }
+}

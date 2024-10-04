@@ -1,0 +1,114 @@
+/* Container for the standings table */
+.standings-container {
+    width: 100%;
+    padding: 1em;
+    box-sizing: border-box;
+    max-height: 600px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    margin: 0;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.loading-container video {
+    height: 25%;
+}
+
+
+
+.driver-standing-header {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1.5fr 0.8fr 0.8fr 0.8fr;
+    background-color: #282828;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 8px;
+    width: 100%;
+    margin: 0.5em 0;
+    font-size: 1.1em;
+    /* box-shadow: 0px 0px 30px rgba(170, 1, 1, 0.1); */
+}
+
+.driver-standing-header-item {
+    text-align: center;
+}
+
+.number-heading {
+    position: relative;
+    left: 0.9em;
+}
+
+.driver-heading {
+    text-align: left;
+    padding-left: 2rem;
+    position: relative;
+    left: 1em;
+}
+
+.constructor-heading-driver-table {
+    text-align: left;
+    position: relative;
+    right: 1em;
+}
+
+.points-heading-driver-table {
+    position: relative;
+    right: 1.3em;
+}
+
+.wins-heading-driver-table {
+    position: relative;
+    right: 1.6em;
+}
+
+/* Smooth, aesthetically pleasing scrollbar */
+.standings-container::-webkit-scrollbar {
+    width: 8px;
+    background-color: #1e1e1e;
+    /* Dark background for scrollbar track */
+}
+
+.standings-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid #1e1e1e;
+    /* Creates space around the thumb */
+}
+
+.standings-container::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+    /* Lighter on hover for better visual feedback */
+}
+
+.standings-container::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
+/* Firefox scrollbar customization */
+.standings-container {
+    scrollbar-color: #555 #121212;
+    scrollbar-width: thin;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .driver-standing-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        padding: 1em;
+        align-items: start;
+    }
+
+    .driver-standing-item>div {
+        margin-bottom: 0.5em;
+    }
+}

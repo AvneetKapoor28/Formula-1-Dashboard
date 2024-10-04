@@ -1,0 +1,130 @@
+/* Resets some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", system-ui;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Navbar container styling */
+.Navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em;
+    padding-bottom: 1.2em;
+    border-bottom: red 2px solid;
+}
+
+.website-logo img {
+    margin-left: 10px;
+    width: 100px;
+    transition: transform 0.3s ease;
+}
+
+.website-logo img:hover {
+    transform: scale(1.1);
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.4rem;
+    gap: 2em;
+    margin-right: 2em;
+}
+
+.links p {
+    cursor: pointer;
+    position: relative;
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect for links */
+.links p:hover {
+    color: #ff7e5f;
+    /* Color change on hover */
+}
+
+/* Underline animation on hover */
+.links p::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #ff7e5f;
+
+}
+
+
+.Navbar .links .selected {
+    color: #ff7e5f;
+    /* Stay highlighted */
+}
+
+.Navbar .links .selected::after {
+    animation: underlineSlide 0.4s ease forwards;
+    /* Keep underline */
+}
+
+@keyframes underlineSlide {
+    0% {
+        width: 0;
+        left: 50%;
+    }
+
+    100% {
+        width: 100%;
+        left: 0;
+    }
+}
+
+.spanforlink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Navbar .links .link {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Set the desired default color */
+}
+
+.Navbar .links .link:hover {
+    color: #ff7e5f;
+    /* Change color on hover if desired */
+}
+
+/* Keep the selected styles */
+.Navbar .links .selected {
+    color: #ff7e5f;
+    /* Highlight color when selected */
+    text-decoration: none;
+    /* Ensure no underline when selected */
+}
+
+/* Responsive navbar layout */
+@media (max-width: 768px) {
+    .Navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Navbar .links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .Navbar .website-logo img {
+        width: 120px;
+    }
+}

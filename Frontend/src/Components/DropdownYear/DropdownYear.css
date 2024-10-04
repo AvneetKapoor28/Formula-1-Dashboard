@@ -1,0 +1,83 @@
+.dropdownYear {
+    position: relative;
+    width: fit-content;
+    margin-left: auto; /* Aligns the dropdown to the right of the 30% flex container */
+    margin-top: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.dropdownYear-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 10px;
+    background-color: #000000;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px; /* Set the desired width of the dropdown */
+}
+
+.dropdownYear-header.open {
+    border-color: greenyellow;
+}
+
+.dropdownYear-header:hover {
+    border-color: red;
+}
+
+.dropdownYear-arrow {
+    font-size: 14px;
+    color: white;
+}
+
+.dropdownYear-list {
+    position: absolute;
+    top: 100%; /* Ensures dropdown opens directly below the header */
+    right: 0; /* Aligns the dropdown to the right */
+    width: 150px; /* Ensures it matches the header width */
+    max-height: 15em;
+    background-color: #000000;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 8px;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+}
+
+.dropdownYear-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.dropdownYear-item:hover {
+    background-color: greenyellow;
+    color: black;
+}
+
+.dropdownYear-item:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+/* Smooth dropdownYear fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar styling for the dropdownYear list */
+.dropdownYear-list {
+    scrollbar-color: #555 #1e1e1e;
+    scrollbar-width: thin;
+}

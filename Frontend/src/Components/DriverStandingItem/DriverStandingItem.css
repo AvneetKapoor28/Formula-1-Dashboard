@@ -1,0 +1,85 @@
+/* Container for the table of standings */
+.standings-item-container {
+    /* width: 80%; */
+    /* max-width: 1200px; */
+    padding: 0.3em;
+    box-sizing: border-box;
+}
+
+/* Container for each driver standing item */
+.driver-standing-item {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1.5fr 0.8fr 0.8fr 0.8fr;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 1em;
+    /* margin: 0.5em 0; */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+/* Subtle hover effect */
+.driver-standing-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for driver position */
+.driver-position {
+    font-size: 1.2rem;
+    color: #ff6f61;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Styling for driver number */
+.driver-number {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+
+/* Styling for driver name */
+.driver-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffab40;
+    padding-left: 2rem;
+}
+
+/* Styling for constructor name */
+.constructor-name {
+    font-size: 0.8rem;
+    color: #4caf50;
+    text-align: center;
+}
+
+/* Styling for driver points */
+.driver-points {
+    font-size: 1.2rem;
+    color: #2196f3;
+    text-align: center;
+}
+
+/* Styling for driver wins */
+.driver-wins {
+    font-size: 1.2rem;
+    color: #9c27b0;
+    text-align: center;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .driver-standing-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        padding: 1em;
+        align-items: start;
+    }
+
+    .driver-standing-item > div {
+        margin-bottom: 0.5em;
+    }
+}

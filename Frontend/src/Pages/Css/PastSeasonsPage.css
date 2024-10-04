@@ -1,0 +1,25 @@
+.standingsheading-selectyear {
+    display: flex;
+    justify-content: space-between; /* Ensures the two elements are spaced apart */
+    /* align-items: center; Vertically center the items */
+    padding: 1rem; /* Optional: add some padding */
+  }
+  
+  .standingsheading-selectyear > *:first-child {
+    flex-basis: 70%; /* Allocates 70% of space to the first child (StandingsHeading) */
+  }
+  
+  .standingsheading-selectyear > *:last-child {
+    flex-basis: 30%; /* Allocates 30% of space to the second child (DropdownYear) */
+  }
+  
+
+.counts-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

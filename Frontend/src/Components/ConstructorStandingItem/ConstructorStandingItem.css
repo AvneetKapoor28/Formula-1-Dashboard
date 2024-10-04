@@ -1,0 +1,73 @@
+/* Container for the table of standings */
+.standings-item-container {
+    /* width: 80%; */
+    /* max-width: 1200px; */
+    padding: 0.3em;
+    box-sizing: border-box;
+}
+
+/* Container for each constructor standing item */
+.constructor-standing-item {
+    display: grid;
+    grid-template-columns: 0.4fr 1fr 1fr 1fr;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 1em;
+    /* margin: 0.5em 0; */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+/* Subtle hover effect */
+.constructor-standing-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for constructor position */
+.constructor-position {
+    font-size: 1.2rem;
+    color: #ff6f61;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Styling for constructor name */
+.constructor-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffab40;
+    padding-left: 2rem;
+}
+
+
+
+/* Styling for constructor points */
+.constructor-points {
+    font-size: 1.2rem;
+    color: #2196f3;
+    text-align: center;
+}
+
+/* Styling for constructor wins */
+.constructor-wins {
+    font-size: 1.2rem;
+    color: #9c27b0;
+    text-align: center;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .constructor-standing-item {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        padding: 1em;
+        align-items: start;
+    }
+
+    .constructor-standing-item>div {
+        margin-bottom: 0.5em;
+    }
+}

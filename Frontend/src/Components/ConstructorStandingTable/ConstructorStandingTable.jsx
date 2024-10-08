@@ -14,7 +14,7 @@ const ConstructorStandingTable = () => {
     setLoading(true); // Start loading
     axios
       .get(
-        `http://localhost:5500/pastData/constructorStandings/${
+        `${process.env.REACT_APP_API_BASE_URL}/pastData/constructorStandings/${
           selectedYear || new Date().getFullYear() - 1
         }`
       )

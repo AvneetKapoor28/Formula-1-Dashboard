@@ -49,6 +49,7 @@ const RaceItemList = () => {
                   CircuitName={round.Circuit.circuitName}
                   Locality={round.Circuit.Location.locality}
                   Country={round.Circuit.Location.country}
+                  Date={round.date}
                 />
               );
             }))

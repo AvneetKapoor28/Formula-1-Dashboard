@@ -30,7 +30,7 @@
 /* Race count display styling */
 .count {
     font-size: 2rem;
-    font-weight: bold;
+    font-weight:300;
     color: inherit;
     padding: 10px;
     border-radius: 8px;

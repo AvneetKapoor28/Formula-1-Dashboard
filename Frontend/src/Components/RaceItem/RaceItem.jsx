@@ -2,10 +2,14 @@ import React from "react";
 import "./RaceItem.css";
 
 const RaceItem = (props) => {
+    const options = { day: 'numeric', month: 'short' };
+    const date = new Date(props.Date);
+    const formattedDate =date.toLocaleDateString('en-US', options).replace(',', '-');
+
   return (
     <div className="raceitem">
       <div className="date-roundnumber">
-        <div className="date-range">10 Dec - 12 Dec</div>
+        <div className="date-range">{formattedDate}</div>
         <div className="round-number">{props.Round}</div>
       </div>
 

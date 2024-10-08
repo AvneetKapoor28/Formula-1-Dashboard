@@ -11,7 +11,7 @@ const SeasonRaceCount = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5500/pastData/races/${selectedYear}/count`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/pastData/races/${selectedYear}/count`)
       .then((response) => {
         setRaceCount(response.data);
         setLoading(false);

@@ -13,7 +13,7 @@ const RaceItemList = () => {
   useEffect(() => {
     setLoading(true); // Start loading
     axios
-      .get(`http://localhost:5500/pastData/races/${selectedYear}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/pastData/races/${selectedYear}`)
       .then((response) => {
         setRaceList(response.data); // Update racelist
         setLoading(false); // Stop loading

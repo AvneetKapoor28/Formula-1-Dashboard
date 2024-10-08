@@ -14,7 +14,7 @@ const DriverStandingTable = () => {
     setLoading(true); // Start loading
     axios
       .get(
-        `http://localhost:5500/pastData/driverStandings/${
+        `${process.env.REACT_APP_API_BASE_URL}/pastData/driverStandings/${
           selectedYear || new Date().getFullYear() - 1
         }`
       )

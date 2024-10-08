@@ -12,7 +12,7 @@ const ConstructorCount = () => {
     setLoading(true);
     axios
       .get(
-        `http://localhost:5500/pastData/constructorstandings/${selectedYear}/count`
+        `${process.env.REACT_APP_API_BASE_URL}/pastData/constructorstandings/${selectedYear}/count`
       )
       .then((response) => {
         setConstructorCount(response.data);

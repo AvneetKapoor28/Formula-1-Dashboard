@@ -12,7 +12,7 @@ const DriverCount = () => {
     setLoading(true);
     axios
       .get(
-        `http://localhost:5500/pastData/driverstandings/${selectedYear}/count`
+        `${process.env.REACT_APP_API_BASE_URL}/pastData/driverstandings/${selectedYear}/count`
       )
       .then((response) => {
         setDriverCount(response.data);

@@ -12,6 +12,13 @@ const DriverStandingTable = () => {
 
   useEffect(() => {
     setLoading(true); // Start loading
+    console.log(
+      `USED URL IS : ${
+        process.env.REACT_APP_API_BASE_URL
+      }/pastData/driverStandings/${
+        selectedYear || new Date().getFullYear() - 1
+      }`
+    );
     axios
       .get(
         `${process.env.REACT_APP_API_BASE_URL}/pastData/driverStandings/${

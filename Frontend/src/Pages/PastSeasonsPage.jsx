@@ -6,7 +6,6 @@ import { PastSeasonsPageContextProvider } from "../Context/PastSeasonsPageProvid
 import SeasonRaceCount from "../Components/SeasonRaceCount/SeasonRaceCount";
 import DriverCount from "../Components/DriverCount/DriverCount";
 import ConstructorCount from "../Components/ConstructorCount/ConstructorCount";
-import RaceItem from "../Components/RaceItem/RaceItem";
 import RaceItemList from "../Components/RaceItemList/RaceItemList";
 
 const PastSeasonsPage = () => {

@@ -35,8 +35,8 @@ const RaceItemList = () => {
     );
   } else {
     return (
-      <>
-        <div className="race-items-container-heading">Races</div>
+      <div className="races-container">
+        <div className="standings-heading">Races</div>
         <div className="race-items-container">
           {raceList.length > 0 ? (
             (console.log(raceList),
@@ -57,7 +57,7 @@ const RaceItemList = () => {
             <p>No Data Available</p>
           )}
         </div>
-      </>
+      </div>
     );
   }
 };

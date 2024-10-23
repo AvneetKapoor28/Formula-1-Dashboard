@@ -4,6 +4,7 @@ const pastData = require('../Controllers/pastDataControllers');
 
 router.get('/driverstandings/:year', pastData.getDriverStandingsByYear);
 router.get('/driverstandings/:year/count', pastData.getDriverCount);
+router.get('/driverstandings/:year/:round', pastData.getDriverStandingsByRound);
 
 router.get('/constructorstandings/:year', pastData.getConstructorStandingsByYear);
 router.get('/constructorstandings/:year/count', pastData.getConstructorCount);

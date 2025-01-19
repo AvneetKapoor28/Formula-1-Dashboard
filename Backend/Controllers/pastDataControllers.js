@@ -93,6 +93,23 @@ const getDriverStandingsByRound = async (req, res, next) => {
         next(error);
     }
 }
+
+const getFlagByNationality = async (req, res, next) => {
+    try {
+        const resObject = {};
+        const { driverNationality, constructorNationality} = req.params;
+        const driverResponse = await axios.get(`https://restcountries.com/v3.1/demonym/${driverNationality}`);
+        resObject.driverFlag = driverResponse.data[0].flag;
+        const constructorResponse = await axios.get(`https://restcountries.com/v3.1/demonym/${constructorNationality}`);
+        resObject.constructorFlag = constructorResponse.data[0].flag;
+        res.json(resObject);
+    }
+    catch (error) {
+        console.error('Error fetching data from RestCountries API', error);
+        next(error);
+    }
+
+}
 module.exports = {
     getDriverStandingsByYear,
     getConstructorStandingsByYear,
@@ -101,4 +118,5 @@ module.exports = {
     getConstructorCount,
     getRaceDataByYear,
     getDriverStandingsByRound,
+    getFlagByNationality,
 }

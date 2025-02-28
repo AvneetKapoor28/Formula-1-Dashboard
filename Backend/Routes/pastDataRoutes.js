@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import pastData from '../Controllers/pastDataControllers.js';
+
 const router = express.Router();
-const pastData = require('../Controllers/pastDataControllers');
 
 router.get('/driverstandings/:year', pastData.getDriverStandingsByYear);
 router.get('/driverstandings/:year/count', pastData.getDriverCount);
@@ -11,9 +12,7 @@ router.get('/flag/:driverNationality/:constructorNationality', pastData.getFlagB
 router.get('/constructorstandings/:year', pastData.getConstructorStandingsByYear);
 router.get('/constructorstandings/:year/count', pastData.getConstructorCount);
 
-
 router.get('/races/:year/count', pastData.getRaceCount);
 router.get('/races/:year', pastData.getRaceDataByYear);
 
-
-module.exports = router;
+export default router;

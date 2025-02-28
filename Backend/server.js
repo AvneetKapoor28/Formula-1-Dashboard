@@ -1,12 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-const pastDataRoutes = require('./Routes/pastDataRoutes');
-const errorHandler = require('./Middleware/ErrorHandler');
+import express from 'express';
+import cors from 'cors';
+import pastDataRoutes from './Routes/pastDataRoutes.js';
+import errorHandler from './Middleware/ErrorHandler.js';
 
 const app = express();
-app.use(cors());
 const PORT = 5500;
 
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {

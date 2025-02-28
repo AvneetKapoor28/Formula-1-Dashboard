@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const getDriverStandingsByYear = async (req, res, next) => {
     try {
@@ -110,7 +110,8 @@ const getFlagByNationality = async (req, res, next) => {
     }
 
 }
-module.exports = {
+
+export default {
     getDriverStandingsByYear,
     getConstructorStandingsByYear,
     getRaceCount,
@@ -119,4 +120,4 @@ module.exports = {
     getRaceDataByYear,
     getDriverStandingsByRound,
     getFlagByNationality,
-}
+};

@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import pastDataRoutes from './Routes/pastDataRoutes.js';
 import errorHandler from './Middleware/ErrorHandler.js';
 import connectDB from './config/mongodb.js';
+import authRouter from './Routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5500;
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
     res.send('Hello from the backend!');
 });
 
+app.use('/api/auth', authRouter)
 app.use('/pastData', pastDataRoutes);
 app.use(errorHandler);
 

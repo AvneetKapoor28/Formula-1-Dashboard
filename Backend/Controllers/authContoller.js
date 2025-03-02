@@ -106,3 +106,74 @@ export const logout = async (req, res) => {
         res.json({ success: false, message: error.message });
     }
 };
+
+// Send OTP to the user's email
+export const sendVerifyOtp = async (req, res) => {
+    try {
+        const { userID } = req.body;
+
+        const user = await userModel.findById(userID);
+        console.log()
+
+        if (user.isAccountVerified) {
+            return res.json({ success: false, message: "Account is already verified" });
+        }
+
+        const otp = String(Math.floor(100000 + Math.random() * 900000));
+
+        user.verifyOtp = otp;
+        user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000
+
+        await user.save();
+
+        const mailoptions = {
+            from: process.env.SENDER_EMAIL,
+            to: user.email,
+            subject: "Account Verification OTP",
+            text: `Your OTP is ${otp}`,
+        }
+
+        await transporter.sendMail(mailoptions);
+        res.json({ success: true, message: "OTP sent successfully" });
+    }
+    catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+}
+
+// Verify the OTP sent to the user's email
+export const verifyEmail = async (req, res) => {
+    const { userID, otp } = req.body;
+
+    if (!userID || !otp) {
+        return res.json({ success: false, message: "Missing Details" })
+    }
+
+    try{
+        const user = await userModel.findById(userID);
+
+        if(!user){
+            return res.json({success: false, message: "User not found"})
+        }
+
+        if(user.verifyOtp !== otp || user.verifyOtp ===''){
+            return res.json({ success: false, message: "Invalid OTP" });
+        }
+
+        if(user.verifyOtpExpireAt < Date.now()){
+            return res.json({ success: false, message: "OTP expired" });
+        }
+
+        user.isAccountVerified = true;
+        user.verifyOtp = '';
+        user.verifyOtpExpireAt = 0;
+
+        await user.save();
+
+        return res.json({success: true, message: "Account verified successfully"});
+
+    }
+    catch(error){
+        res.json({ success: false, message: error.message });
+    }
+}

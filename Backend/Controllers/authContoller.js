@@ -42,9 +42,9 @@ export const register = async (req, res) => {
         };
         await transporter.sendMail(mailoptions);
 
-        res.json({ success: true, message: "User Registered successfully" });
+       return res.json({ success: true, message: "User Registered successfully" });
     } catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 };
 
@@ -86,7 +86,7 @@ export const login = async (req, res) => {
 
         return res.json({ success: true, message: "Logged in successfully" });
     } catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 };
 
@@ -103,7 +103,7 @@ export const logout = async (req, res) => {
 
         return res.json({ success: true, message: "Logged out successfully" });
     } catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 };
 
@@ -137,7 +137,7 @@ export const sendVerifyOtp = async (req, res) => {
         return res.json({ success: true, message: "OTP sent successfully" });
     }
     catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 }
 
@@ -174,7 +174,7 @@ export const verifyEmail = async (req, res) => {
 
     }
     catch (error) {
-        res.json({ success: false, message: error.message });
+       return res.json({ success: false, message: error.message });
     }
 }
 
@@ -184,7 +184,7 @@ export const isAuthenticated = async (req, res) => {
         return res.json({ success: true, message: "User is authenticated" });
     }
     catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 }
 
@@ -221,7 +221,7 @@ export const sendResetOtp = async(req, res) => {
 
     }
     catch(error){
-        res.json({ success: false, message: error.message });
+       return res.json({ success: false, message: error.message });
     }
 }
 
@@ -258,6 +258,6 @@ export const resetPassword = async(req, res) => {
 
     }
     catch(error){
-        res.json({ success: false, message: error.message });
+        return ({ success: false, message: error.message });
     }
 }

@@ -4,7 +4,7 @@ const userAuth = async (req, res, next) => {
     const { token } = req.cookies;
 
     if (!token) {
-        res.json({ success: false, message: 'Unauthorized access. Please login again' });
+        return res.json({ success: false, message: 'Unauthorized access. Please login again. NO TOKEN FOUND' });
     }
 
     try {
@@ -13,12 +13,12 @@ const userAuth = async (req, res, next) => {
         if(tokenDecode.id){
             req.body.userID = tokenDecode.id;
         } else{
-            res.json({ success: false, message: 'Unauthorized access. Please login again' });
+           return  res.json({ success: false, message: 'Unauthorized access. Please login again' });
         }
         next();
     }
     catch (error) {
-        res.json({ success: false, message: error.message });
+        return res.json({ success: false, message: error.message });
     }
 }
 

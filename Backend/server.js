@@ -12,7 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 5500;
 connectDB();
 
-app.use(cors());
+const corsOptions = {
+    origin: ['http://localhost:3000', 'https://www.formula1-dashboard.xyz'],
+    credentials: true,
+}
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 

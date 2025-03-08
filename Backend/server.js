@@ -7,6 +7,7 @@ import errorHandler from './Middleware/ErrorHandler.js';
 import connectDB from './config/mongodb.js';
 import authRouter from './Routes/authRoutes.js';
 import userRouter from './Routes/userRoutes.js';
+import currentDataRouter from './Routes/currentDataRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5500;
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRouter)
 app.use('/api/user', userRouter)
 app.use('/pastData', pastDataRoutes);
+app.use('/currentData', currentDataRouter);
 app.use(errorHandler);
 
 app.listen(PORT, () => {

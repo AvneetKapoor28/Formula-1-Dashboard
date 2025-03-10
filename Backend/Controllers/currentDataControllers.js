@@ -20,7 +20,7 @@ const getCollisionsCount = async (req, res, next) => {
 const getYoutubeFeed = async (req, res, next) => {
     try {
 
-        const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=formula-1%20news&key=${process.env.YOUTUBE_API_KEY}`);
+        const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=formula-1%20news&key=${process.env.YOUTUBE_API_KEY}`);
         const videoList = extractVideoDetails(response.data);
         return res.json(videoList);
 

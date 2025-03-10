@@ -20,7 +20,7 @@ const getCollisionsCount = async (req, res, next) => {
 const getYoutubeFeed = async (req,res, next) => {
     try{
 
-        const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=formula-1%20news&key=${process.env.YOUTUBE_API_KEY}`);
+        const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=formula-1%20news&key=${process.env.YOUTUBE_API_KEY}`);
         const videoList = extractVideoDetails(response.data);
         return res.json(videoList);
 
@@ -40,4 +40,20 @@ const extractVideoDetails = (apiResponse) => {
     }));
 };
 
-export default { getCollisionsCount, getYoutubeFeed };
+
+const getCurrentYearRaceCount = async(req, res, next) => {
+    try{
+        const response = await (axios.get(`https://api.jolpi.ca/ergast/f1/current.json`))
+        const raceCount = response.data.MRData.total
+        return res.json(raceCount)
+    }
+    catch(error){
+        console.error('Error fetching data from Ergast API', error);
+        next(error);
+    }
+}
+
+
+//Add SprintRaceCount and Countdown to next GP
+
+export default { getCollisionsCount, getYoutubeFeed, getCurrentYearRaceCount };

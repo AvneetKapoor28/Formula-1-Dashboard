@@ -15,6 +15,8 @@ connectDB();
 
 const corsOptions = {
     origin: ['http://localhost:3000', 'https://www.formula1-dashboard.xyz'],
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
     credentials: true,
 }
 
